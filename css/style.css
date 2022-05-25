@@ -1,4 +1,44 @@
+
+
 body {
-    background-color: hsl(216, 12%, 8%);
+  background-color: hsl(216, 12%, 8%);
+  font-family: "Overpass", sans-serif;
+  color: white;
 }
 
+p {
+    color: #7c858e;
+}
+
+.card {
+  background: rgb(37, 44, 54);
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(37, 44, 54, 1) 0%,
+    rgba(23, 30, 40, 1) 100%
+  );
+  padding: 2rem;
+  border-radius: 2rem;
+  max-width: 414px;
+  margin: 0 auto;
+}
+
+.btn {
+  border: none;
+  padding: 1rem;
+}
+.rating-container {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-rating {
+    background-color: #262f38;
+    color: #7c858e;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.btn-rating:hover {
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+}
