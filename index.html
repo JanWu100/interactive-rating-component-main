@@ -21,41 +21,45 @@
     />
   </head>
   <body>
-    <article class="card-background">
-      <div class="card">
-        <div class="card-header">
-          <span class="star-icon">
-            <img src="./images/icon-star.svg" alt="" />
-          </span>
-        </div>
+    <main>
+      <article class="card-background">
+        <div class="card">
+          <div class="card-header">
+            <span class="star-icon">
+              <img src="./images/icon-star.svg" alt="" />
+            </span>
+          </div>
 
-        <div class="text-container">
-          <h2 class="card-heading">How did we do?</h2>
-          <p>
-            Please let us know how we did with your support request. All
-            feedback is appreciated to help us improve our offering!
-          </p>
-        </div>
+          <div class="text-container">
+            <h1 class="card-heading">How did we do?</h1>
+            <p>
+              Please let us know how we did with your support request. All
+              feedback is appreciated to help us improve our offering!
+            </p>
+          </div>
 
-        <div class="rating-control">
-          <ul>
-            <li><button class="btn btn-rating" value="1">1</button></li>
-            <li><button class="btn btn-rating" value="2">2</button></li>
-            <li><button class="btn btn-rating" value="3">3</button></li>
-            <li><button class="btn btn-rating" value="4">4</button></li>
-            <li><button class="btn btn-rating" value="5">5</button></li>
-          </ul>
-          <button class="btn btn-submit">submit</button>
-          <div class="error-msg hidden"></div>
+          <div class="rating-control">
+            <ul>
+              <li><button class="btn btn-rating" value="1">1</button></li>
+              <li><button class="btn btn-rating" value="2">2</button></li>
+              <li><button class="btn btn-rating" value="3">3</button></li>
+              <li><button class="btn btn-rating" value="4">4</button></li>
+              <li><button class="btn btn-rating" value="5">5</button></li>
+            </ul>
+            <button class="btn btn-submit">submit</button>
+            <div class="error-msg hidden"></div>
+          </div>
         </div>
+      </article>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://github.com/JanWu100">JanWu100</a>.
       </div>
-    </article>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="https://github.com/JanWu100">JanWu100</a>.
-    </div>
+    </footer>
     <script>
       let ratingSelected;
       const textContainer = document.querySelector(".text-container");
@@ -112,7 +116,7 @@
             <div class="user-rating"><p>You selected ${ratingSelected} out of 5</p></div>
             `;
         textContainer.innerHTML = `
-            <h2 class="card-heading">Thank You!</h2>
+            <h1 class="card-heading">Thank You!</h1>
             <p>
                 We appreciate you taking the time to give a rating. If you ever need more support,
                 don’t hesitate to get in touch!
