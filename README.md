@@ -17,7 +17,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://veryfirstwebsite.com/frontendmentor/001/)
+- Live Site URL: [https://veryfirstwebsite.com/frontendmentor/001/](https://veryfirstwebsite.com/frontendmentor/001/)
 
 ### Built with
 
