@@ -4,14 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-
-    <title>Frontend Mentor | Interactive rating component</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,8 +14,8 @@
     />
   </head>
   <body>
-    <article class="card-background">
-      <div class="card">
+    <article class="card">
+      <div class="card-wrapper">
         <div class="card-header">
           <span class="star-icon">
             <img src="./images/icon-star.svg" alt="" />
@@ -30,7 +23,7 @@
         </div>
 
         <div class="text-container">
-          <h2 class="card-heading">How did we do?</h2>
+          <h2 class="heading">How did we do?</h2>
           <p>
             Please let us know how we did with your support request. All
             feedback is appreciated to help us improve our offering!
@@ -50,74 +43,78 @@
         </div>
       </div>
     </article>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="https://github.com/JanWu100">JanWu100</a>.
-    </div>
     <script>
-      let ratingSelected;
       const textContainer = document.querySelector(".text-container");
-      const errorMsg = document.querySelector(".error-msg");
+      let ratingSelected;
+
       const ratingBtns = document.querySelectorAll(".btn-rating");
-      const cardBody = document.querySelector(".card");
 
       ratingBtns.forEach((button) =>
         button.addEventListener("click", (e) => {
-          clearError();
+          document.querySelector(".error-msg").classList.add("hidden");
+          document.querySelector(".error-msg").innerHTML = "";
+
           ratingSelected = e.target.value;
-          ratingBtns.forEach((button) =>
-            button.classList.remove("btn__active")
-          );
-          button.classList.add("btn__active");
+          ratingBtns.forEach((button) => button.classList.remove("btn-active"));
+          button.classList.add("btn-active");
         })
       );
 
       document.querySelector(".btn-submit").addEventListener("click", () => {
-        if (ratingSelected) displaySummary();
-        else showError();
+        if (ratingSelected) {
+          displaySummary();
+        } else {
+          document.querySelector(".error-msg").classList.remove("hidden");
+          document.querySelector(".error-msg").innerHTML =
+            "Please give us a rating to proceed.";
+        }
       });
+      document.addEventListener("click", ()=> {
+      document.querySelector(".card-wrapper").classList.toggle("hidden")
 
-      const displaySummary = () => {
-        const initialHeight = cardBody.clientHeight;
-        cardBody.style.minHeight = `${initialHeight}px`;
-        cardBody.classList.add("hidden");
+      })
+      const displaySummary = async () => {
+        // hide();
+        await setTimeout(show, 500);
 
-        setTimeout(() => {
-          swapData();
-          cardBody.classList.remove("hidden");
-          cardBody.style.minHeight = `0px`;
-        }, 300);
       };
 
-      const showError = () => {
-        errorMsg.classList.remove("hidden");
-        errorMsg.innerHTML = "Please give us a rating to proceed.";
-      };
+    //   const hide = () => {
+    //     textContainer.classList.add("hidden");
+    //     document.querySelector(".rating-control").classList.add("hidden");
 
-      const clearError = () => {
-        errorMsg.classList.add("hidden");
-        errorMsg.innerHTML = "";
-      };
+    //     document.querySelector(".star-icon").classList.add("hidden");
+    //   };
 
-      const swapData = () => {
-        document
-          .querySelector(".card-background")
-          .classList.add("card__center");
+      const show = () => {
+        // textContainer.innerHTML = ""
+        document.querySelector(".card").classList.add("card__center");
         document.querySelector(".rating-control").classList.add("disabled");
 
         document.querySelector(".card-header").innerHTML = `
-            <img class="header-image" src="./images/illustration-thank-you.svg" alt="" />
-            <div class="user-rating"><p>You selected ${ratingSelected} out of 5</p></div>
+            <img class="header-image hidden" src="./images/illustration-thank-you.svg" alt="" />
+            <div class="rating-selected hidden"><p>You selected ${ratingSelected} out of 5</p></div>
             `;
-        textContainer.innerHTML = `
+
+        setTimeout(() => {
+          document.querySelector(".header-image").classList.remove("hidden");
+        }, 100);
+
+        setTimeout(() => {
+          document.querySelector(".rating-selected").classList.remove("hidden");
+        }, 400);
+        setTimeout(() => {
+          textContainer.innerHTML = `
             <h2 class="heading">Thank You!</h2>
             <p>
                 We appreciate you taking the time to give a rating. If you ever need more support,
-                don’t hesitate to get in touch!
+      don’t hesitate to get in touch!
             </p>
+
             `;
+
+          textContainer.classList.remove("hidden");
+        }, 700);
       };
     </script>
   </body>
