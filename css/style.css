@@ -13,6 +13,8 @@
   color: white;
 }
 
+#preload-01 { background: "./images/illustration-thank-you.svg" no-repeat -9999px -9999px; }
+
 body {
   background-color: hsl(216, 12%, 8%);
   font-family: "Overpass", sans-serif;
