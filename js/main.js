@@ -27,12 +27,9 @@ let ratingSelected;
 
         setTimeout(() => {
           swapData();
-          
+          cardBody.classList.remove("hidden");
+          cardBody.style.minHeight = `0px`;
         }, 300);
-        setTimeout(()=>{
-            cardBody.classList.remove("hidden");
-            cardBody.style.minHeight = `0px`;
-        },400)
       };
 
       const showError = () => {
@@ -50,11 +47,17 @@ let ratingSelected;
           .querySelector(".card-background")
           .classList.add("card__center");
         document.querySelector(".rating-control").classList.add("disabled");
+        document.querySelector(".header-image").classList.remove("disabled");
 
-        document.querySelector(".card-header").innerHTML = `
-            <img class="header-image" src="./images/illustration-thank-you.svg" alt="" />
-            <div class="user-rating"><p>You selected ${ratingSelected} out of 5</p></div>
-            `;
+        const starIcon = document.querySelector(".star-icon")
+        const userRating = document.createElement("div")
+        userRating.classList.add("user-rating")
+        userRating.innerHTML = `
+        <p>You selected ${ratingSelected} out of 5</p>
+        `
+        document.querySelector(".card-header").appendChild(userRating)
+        document.querySelector(".card-header").removeChild(starIcon)
+
         textContainer.innerHTML = `
             <h1 class="card-heading">Thank You!</h1>
             <p>
