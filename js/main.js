@@ -27,9 +27,12 @@ let ratingSelected;
 
         setTimeout(() => {
           swapData();
-          cardBody.classList.remove("hidden");
-          cardBody.style.minHeight = `0px`;
+          
         }, 300);
+        setTimeout(()=>{
+            cardBody.classList.remove("hidden");
+            cardBody.style.minHeight = `0px`;
+        },400)
       };
 
       const showError = () => {
