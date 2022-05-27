@@ -153,6 +153,12 @@ p {
   display: none;
 }
 
+.image-disabled {
+    height: 0px;
+    opacity: 0px;
+    position: absolute;
+}
+
 .user-rating {
   background-color: #262f38;
   justify-content: center;

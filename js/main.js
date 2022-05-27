@@ -47,7 +47,7 @@ let ratingSelected;
           .querySelector(".card-background")
           .classList.add("card__center");
         document.querySelector(".rating-control").classList.add("disabled");
-        document.querySelector(".header-image").classList.remove("disabled");
+        document.querySelector(".header-image").classList.remove("image-disabled");
 
         const starIcon = document.querySelector(".star-icon")
         const userRating = document.createElement("div")
